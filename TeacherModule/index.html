@@ -1,1 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <!-- Processing Widget -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.sound.min.js"></script>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+    <title>Teacher Module</title>
+  </head>
+  <body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">CodeMe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Modules
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{site.baseurl}}/TeacherModule">Module #1: Datatypes</a>
+                <a class="dropdown-item" href="{{site.baseurl}}/TeacherModule">Module #2: Loops</a>
+            </li>
+            </ul>
+        </div>
+
+        <div class="nav-item active ml-auto">
+            <span class="navbar-text">Signed in as: Justin Baker (Teacher)</span>
+        </div>
+    </nav>
+
+
+
+    <div class="col-md-12 text-center">
+        <h3>Module #2: Loops</h3> 
+    </div>
+    <div class="col-md-12 text-center">
+        <h4>Prompt: Create a multi-color pattern of one shape that fills up the canvas.</h4>
+    </div>
+
+    <div class="col-md-12 text-center">
+        <div id="lessonPlan" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+            <li data-target="#lessonPlan" data-slide-to="0" class="active"></li>
+            <li data-target="#lessonPlan" data-slide-to="1"></li>
+            <li data-target="#lessonPlan" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+            <div class="d-block w-100" style="background-color:  rgba(128, 128, 128, 0.568);" class="carousel-item active">
+                <h5>
+                    There are multiple types of ways to loop in Processing. One way is to use a <code>for</code> loop. 
+                    The setup for this is <code>for(var i = 0; i < 10; i++)</code>. The first part initializes the variable i to a value of 0.
+                    The second part is a conditional, where every time it loops it will check if this value is true and exit the loop if not. 
+                    The last statement occurs every time the loops is done and will increment the variable i. The loop will run 10 times. 
+                </h5>
+            </div>
+            <div style="background-color: rgba(128, 128, 128, 0.568);"class="carousel-item">
+                <h5>
+                    In order to make a pattern in Processing, you could combine loops with shapes like <code>rect()</code> or <code>ellipse()</code>.
+                </h5>
+            </div>
+            <div style="background-color:  rgba(128, 128, 128, 0.568);" class="carousel-item">
+                <h5>
+                    See below an example of how you can create a multi-color pattern by clicking play.
+                </h5>
+            </div>
+            </div>
+            <a class="carousel-control-prev" href="#lessonPlan" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#lessonPlan" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+   
+    <script type="text/p5">
+        function setup() {
+            createCanvas(100, 100);
+        }
+        
+        function draw() {
+            background(0, 0, 200, 100);
+            for (var i = 0; i < 20; i++) {
+              fill(10 * i, 20 * i, 30*i);
+              rect(5*i, 5*i, 10, 10);
+            }
+        }
+    </script>
+    
+    <div style="margin-bottom: 20px" class="col-md-12 text-center">
+        <h4>Student Progress</h4>
+    </div>
+    <div style="margin-bottom: 20px" class="col-md-12 text-center">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Jennifer</td>
+                <td>Williams</td>
+                <td>Ready</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Hazel</td>
+                <td>Shibu</td>
+                <td>Completed</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>
 
